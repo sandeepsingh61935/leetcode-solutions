@@ -25,10 +25,11 @@ public:
         ListNode* cur = head;
         ListNode* next = head->next;
         while(next && cur->val == next->val) {
+            ListNode* temp = next;
             next = next->next;
+            delete(temp);
         }
         cur->next = deleteDuplicates(next);
-
         return head;
     }
 };
